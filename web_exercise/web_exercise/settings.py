@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,12 +36,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 应用创建之后，记得加到这里来！！！！
+    'apps.accounts',
+    'apps.apis',
+    'apps.exercise',
+    'apps.diet',
+    'apps.equipments',
+    'apps.schedule',
+    'apps.slimming',
+    'apps.usercenter',
+    # 富文本编辑器
+    'ckeditor',
+    'ckeditor_uploader',
+    # 利用三方应用实现缩略图
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 开启session，默认是开启的
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # 开启csrf防御
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -54,7 +69,7 @@ ROOT_URLCONF = 'web_exercise.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 全局上下文管理器
+                'web_exercise.context_processors.base_date',
             ],
         },
     },
@@ -103,9 +120,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -116,5 +135,83 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+# 静态文件的路由
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# 自定义用户model： "应用名.Model名
+AUTH_USER_MODEL = 'accounts.User'
+# 注意：如果扩展了User一定需要指定AUTH_USER_MODEL
+
+# 配置媒体文件路径，上传路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if not os.path.exists(MEDIA_ROOT):
+    os.mkdir(MEDIA_ROOT)
+MEDIA_URL = '/media/'
+
+# CKEditor配置：富文本编辑器
+# 真实路径为：MEDIA_URL+CKEDITOR_UPLOAD_PATH(MEDIA_ROOT/CKEDITOR_UPLOAD_PATH)
+CKEDITOR_UPLOAD_PATH = "ckeditor_upload"
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+    'default_ckeditor':{
+        'toolbar': 'Full',
+    },
+    'default': {
+        'toolbar': 'Full',
+    },
+}
+
+# Redis缓存配置
+CACHES = {
+      'default': {
+          # BACKEND配置缓存后端为RedisCache
+          'BACKEND': 'django_redis.cache.RedisCache',
+          # LOCATION配置redis服务器地址
+          'LOCATION': 'redis://192.168.0.98:6379',
+          "OPTIONS": {
+              "CLIENT_CLASS": "django_redis.client.DefaultClient",
+               "PASSWORD": "",
+
+          },
+      },
+  }
+
+# FontPath
+FontPath = os.path.join(BASE_DIR, 'static/fonts/')
+
+
+# 配置缩略图（easy_tuhubnail）
+THUMBNAIL_ALIASES = {
+    # target: 'accounts.User' => 给哪个app/Model/Field配置缩略图
+    '': {
+        # avatar: 表示将来引用的名字
+        # crop: False=> 不裁剪、同比例缩小
+        'avatar': {'size': (50, 50), 'crop': True},
+    },
+
+    # 'accounts': {
+    #     'xs': {'size': (30, 30), 'crop': True},
+    #     'xs_nocorp': {'size': (30, 30), 'crop': False},
+    # },
+}
+
+# 忘记密码，发送邮件的配置
+DEFAULT_FROM_EMAIL = '601775477@qq.com'
+
+# 163邮箱或QQ邮箱的SMTP服务器地址
+EMAIL_HOST = 'smtp.qq.com'
+# 发件人的邮箱
+EMAIL_HOST_USER = '601775477@qq.com'
+# 发件人邮箱密码
+# EMAIL_HOST_PASSWORD = 'qyutpdgcoduzibhf'
+EMAIL_HOST_PASSWORD = 'bkvnwlnzncyobeii'
+# tls协议，有True和False两种情况
+EMAIL_USE_TLS = True
+# 发件人的邮箱
+EMAIL_FROM = '601775477@qq.com'
+

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block load_css %}
+{% endblock %}
+
+<title>{% block title %}equipments{% endblock %}</title>
+
+{% block content %}
+<div class="inner-banner"></div>
+<div class="gallery">
+    <div class="container">
+        <h2 class="heading text-center">Our Gallery</h2>
+        <div class="gallery-bottom">
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g1.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g1.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g2.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g2.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g3.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g3.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g4.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g4.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g5.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g5.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g6.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g6.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g7.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g7.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g8.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g8.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g9.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g9.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g10.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g10.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g11.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g11.jpg' %}" alt=""/></a>
+            </div>
+            <div class="col-md-3 gallery-grid">
+                <a class="example-image-link" href="{% static 'images/g12.jpg' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="{% static 'images/g12.jpg' %}" alt=""/></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+ </div>
+{% endblock %}
+
+{% block load_js %}
+    <script src="{% static 'js/lightbox.js' %}"></script>
+{% endblock %}

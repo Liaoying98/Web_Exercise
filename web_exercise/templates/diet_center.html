@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block load_css %}
+{% endblock %}
+
+<title>{% block title %}diet{% endblock %}</title>
+
+{% block content %}
+    <div class="inner-banner"></div>
+
+    <div class="blog-section">
+	    <div class="container">
+		<h2 class="heading text-center">Blogs</h2>
+		<div class="blog-post-grids">
+			<div class="blog-post">
+					<a href="{% url 'diet:single' %}"><img src="{% static 'images/b1.jpg' %}" class="img-responsive" alt="  "/></a>
+					<div class="text">
+						<a href="{% url 'diet:single' %}"> Aliquam erat volutpat</a>
+					</div>
+					<div class="admin-tag">
+					<p>Posted by <a href="{% url 'diet:single' %}">Admin</a> in <a href="#">General</a> | <a href="{% url 'diet:single' %}">10 Comments</a></p>
+					<p class="erat">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Nulla in purus nibh. Donec ornare felis neque. Nullam tortor
+					nulla, sodales quis posuere quis, tristique nec libero. Proin
+					vitae convallis odio. Morbi nec enim nisi. Aliquam erat volutpat.</p>
+					<a href="{% url 'diet:single' %}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+					</div>
+			</div>
+			<div class="blog-post">
+					<a href="{% url 'diet:single' %}"><img src="{% static 'images/b2.jpg' %}" class="img-responsive" alt="  "/></a>
+					<div class="text">
+						<a href="{% url 'diet:single' %}"> Aliquam erat volutpat</a>
+					</div>
+					<div class="admin-tag">
+					<p>Posted by <a href="{% url 'diet:single' %}">Admin</a> in <a href="#">General</a> | <a href="{% url 'diet:single' %}">10 Comments</a></p>
+					<p class="erat">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Nulla in purus nibh. Donec ornare felis neque. Nullam tortor
+					nulla, sodales quis posuere quis, tristique nec libero. Proin
+					vitae convallis odio. Morbi nec enim nisi. Aliquam erat volutpat.</p>
+					<a href="{% url 'diet:single' %}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+					</div>
+			</div>
+		</div>
+		<div class="blog-post-grids">
+			<div class="blog-post">
+				<a href="{% url 'diet:single' %}"><img src="{% static 'images/b3.jpg' %}" class="img-responsive" alt="  "/></a>
+				<div class="text">
+					<a href="{% url 'diet:single' %}"> Aliquam erat volutpat</a>
+				</div>
+				<div class="admin-tag">
+				<p>Posted by <a href="{% url 'diet:single' %}">Admin</a> in <a href="#">General</a> | <a href="{% url 'diet:single' %}">10 Comments</a></p>
+				<p class="erat">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Nulla in purus nibh. Donec ornare felis neque. Nullam tortor
+				nulla, sodales quis posuere quis, tristique nec libero. Proin
+				vitae convallis odio. Morbi nec enim nisi. Aliquam erat volutpat.</p>
+				<a href="{% url 'diet:single' %}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+				</div>
+			</div>
+			<div class="blog-post">
+				<a href="{% url 'diet:single' %}"><img src="{% static 'images/b4.jpg' %}" class="img-responsive" alt="  "/></a>
+				<div class="text">
+					<a href="{% url 'diet:single' %}"> Aliquam erat volutpat</a>
+				</div>
+				<div class="admin-tag">
+				<p>Posted by <a href="{% url 'diet:single' %}">Admin</a> in <a href="#">General</a> | <a href="{% url 'diet:single' %}">10 Comments</a></p>
+				<p class="erat">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Nulla in purus nibh. Donec ornare felis neque. Nullam tortor
+				nulla, sodales quis posuere quis, tristique nec libero. Proin
+				vitae convallis odio. Morbi nec enim nisi. Aliquam erat volutpat.</p>
+				<a href="{% url 'diet:single' %}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+				</div>
+			</div>
+		</div>
+		<div class="blog-post-grids">
+			<div class="blog-post">
+				<a href="{% url 'diet:single' %}"><img src="{% static 'images/b4.jpg' %}" class="img-responsive" alt="  "/></a>
+				<div class="text">
+					<a href="{% url 'diet:single' %}"> Aliquam erat volutpat</a>
+				</div>
+				<div class="admin-tag">
+				<p>Posted by <a href="{% url 'diet:single' %}">Admin</a> in <a href="#">General</a> | <a href="{% url 'diet:single' %}">10 Comments</a></p>
+				<p class="erat">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Nulla in purus nibh. Donec ornare felis neque. Nullam tortor
+				nulla, sodales quis posuere quis, tristique nec libero. Proin
+				vitae convallis odio. Morbi nec enim nisi. Aliquam erat volutpat.</p>
+				<a href="{% url 'diet:single' %}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+				</div>
+			</div>
+			<div class="blog-post">
+				<a href="{% url 'diet:single' %}"><img src="{% static 'images/b1.jpg' %}" class="img-responsive" alt="  "/></a>
+				<div class="text">
+					<a href="{% url 'diet:single' %}"> Aliquam erat volutpat</a>
+				</div>
+				<div class="admin-tag">
+				<p>Posted by <a href="{% url 'diet:single' %}">Admin</a> in <a href="#">General</a> | <a href="{% url 'diet:single' %}">10 Comments</a></p>
+				<p class="erat">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Nulla in purus nibh. Donec ornare felis neque. Nullam tortor
+				nulla, sodales quis posuere quis, tristique nec libero. Proin
+				vitae convallis odio. Morbi nec enim nisi. Aliquam erat volutpat.</p>
+				<a href="{% url 'diet:single' %}" class="hvr-shutter-in-horizontal more">Readmore<span> </span></a>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	    <!--start-news-pagenate-->
+        <div class="blog-pagenat">
+            <ul>
+                <li><a class="frist" href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a class="last" href="#">Next</a></li>
+            </ul>
+        </div>
+        <!--//End-news-pagenate-->
+    </div>
+{% endblock %}
+
+{% block load_js %}
+{% endblock %}

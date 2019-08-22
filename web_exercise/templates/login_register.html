@@ -1,0 +1,310 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web_Exercise</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="{% static 'js/jquery-1.9.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+    <link href="{% static 'css/login2.css' %}" rel="stylesheet" type="text/css"/>
+
+    {# 加载提示工具对应的js和css #}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/gritter/css/jquery.gritter.css' %}" />
+    <script type="text/javascript" src="{% static 'assets/gritter/js/jquery.gritter.js' %}"></script>
+
+</head>
+<body>
+
+
+<div class="login" style="margin-top:200px; margin-right: 250px">
+    <div class="header">
+        <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);"
+                                           tabindex="7">快速登录</a>
+            <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a>
+            <div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
+
+        </div>
+    </div>
+
+    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 300px;">
+        <!--登录-->
+        <div class="web_login" id="web_login">
+            <div class="login-box">
+                <div class="login_form">
+                    <form name="loginform" accept-charset="utf-8" id="login_form" class="loginForm"
+                          method="post">
+                        {# 隐藏域 #}
+                        <input type="hidden" name="did" value="0"/>
+                        <input type="hidden" name="msg" value="2"/>
+                        {% csrf_token %}
+                        <div class="uinArea" id="uinArea">
+                            <label class="input-tips" for="u">用户名：</label>
+                            <div class="inputOuter" id="uArea">
+                                {# <input type="text" id="u" name="username" class="inputstyle"/> #}
+                                {{ forms.username }}
+                            </div>
+                        </div>
+                        <div class="pwdArea" id="pwdArea">
+                            <label class="input-tips" for="p">密码：</label>
+                            <div class="inputOuter" id="pArea">
+                                {# <input type="password" id="p" name="p" class="inputstyle"/> #}
+                                {{ forms.password }}
+                            </div>
+                        </div>
+                        <div id="pwdArea">
+                            <label class="input-tips" for="captcha">验证码：</label>
+                            <div style="position: relative;margin-top: -5px">
+                                {# <input type="text" id="captcha" name="captcha" class="inputstyle"/> #}
+                                {{ forms.captcha }}
+                                <a href="javascript:void(0);"><img id="captcha_img" src="#" style="width: 100px;height: 40px;top:15px;position: relative"> </a>
+                            </div>
+                        </div>
+                        <div class="user-reg" style="margin-top: 10px">
+                            <span class="pull-right"> <a href="{% url 'accounts:password_forget' %}" style="margin-left: 200px;"> 忘记密码?</a></span>
+                        </div>
+                        <div style="padding-left:50px;margin-top:20px;">
+                        <button style="width:150px; margin-left: 30px" type="button" id="submit" class="button_blue">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--登录end-->
+    </div>
+
+    <!--注册-->
+    <div class="qlogin" id="qlogin" style="display: none; ">
+        <div class="web_login">
+            <form name="form2" id="regUser" accept-charset="utf-8" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="msg" value="1"/>
+                <input type="hidden" name="did" value="0"/>
+                <ul class="reg_form" id="reg-ul">
+                    <div id="userCue" class="cue">快速注册请注意格式</div>
+                    <li>
+                        <label for="user" class="input-tips2">用户名：</label>
+                        <div class="inputOuter2">
+                            {{ form.username }}
+                        </div>
+                    </li>
+                    <li>
+                        <label for="passwd" class="input-tips2">密码：</label>
+                        <div class="inputOuter2">
+                            {{ form.password }}
+                        </div>
+                    </li>
+                    <li>
+                        <label class="input-tips2">确认密码：</label>
+                        <div class="inputOuter2">
+                            {{ form.password2 }}
+                        </div>
+                    </li>
+                    <li>
+                        <label for="mobile" class="input-tips2">手机：</label>
+                        <div class="inputOuter2">
+                            {{ form.mobile }}
+                        </div>
+                    </li>
+                    <li>
+                        <label for="mobile_captcha" class="input-tips2">验证码：</label>
+                        <div class="inputOuter2">
+                            {{ form.mobile_captcha }}
+                            <input onclick="sendmessage(this,60);" type="button" value="发送短信" class="btn btn-info"
+                                   style="height:40px;width: 86px;"/>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputArea">
+                            <input type="button" id="reg" style="margin-top:10px;margin-left:85px;" class="button_blue"
+                                   value="同意协议并注册"/>
+                        </div>
+                    </li>
+                    <div class="cl"></div>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <!--注册end-->
+
+
+    {# 添加js动作,短信验证码#}
+    <script>
+        {# 发送短信验证码，点击发送短信就调用函数sendmessage #}
+        function sendmessage(obj, second) {
+            var telRegex = /(13|14|15|17|18)\d{9}/;
+            if (telRegex.test($.trim($("#mobile").val()))) {
+                $.ajax({
+                    url: "{% url 'apis:get_mobile_captcha' %}",
+                    type: "GET",
+                    dataType: "json",
+                    data: {"mobile": $("#mobile").val()},
+                    success: function (data) {
+                        {#提示小工具gritter#}
+                        $.gritter.add({
+                            title: '提交结果',
+                            text: data.msg
+                        });
+                    }
+                });
+                {#倒计时#}
+                countDown(obj, second)
+            } else {
+                $.gritter.add({
+                    title: '提交结果',
+                    text: '手机号有误'
+                });
+            }
+        }
+
+        {# 重新发送倒计时 #}
+        function countDown(obj, second) {
+            // 如果秒数还是大于0，则表示倒计时还没结束
+            if (second >= 0) {
+                // 获取默认按钮上的文字
+                if (typeof buttonDefaultValue === 'undefined') {
+                    buttonDefaultValue = obj.defaultValue;
+                }
+                // 按钮置为不可点击状态
+                obj.disabled = true;
+                // 按钮里的内容呈现倒计时状态
+                obj.value = buttonDefaultValue + '(' + second + ')';
+                // 时间减一
+                second--;
+                // 一秒后重复执行
+                setTimeout(function () {
+                    countDown(obj, second);
+                }, 1000);
+                // 否则，按钮重置为初始状态
+            } else {
+                // 按钮置未可点击状态
+                obj.disabled = false;
+                // 按钮里的内容恢复初始状态
+                obj.value = buttonDefaultValue;
+            }
+        }
+    </script>
+
+    {# 注册按钮的js #}
+    <script>
+        $("#reg").click(function () {
+            // 把序列化的值传给ajax()作为url的参数
+            console.log($("#regUser").serialize());
+            $.ajax({
+                url: "{% url 'accounts:login' %}",
+                type: "POST",
+                dataType: "json",
+                data: $("#regUser").serialize(),
+                success: function (data) {
+                    if (data.status == 200) {
+                        {#刷新页面#}
+                        window.location.href = "{% url 'exercise:index' %}";
+                    } else {
+                        msg = "新错误类型"
+                        if (data.status == 400 || data.status == 401) {
+                            msg = data.msg
+                        } else {
+                            for (var i in data.msg) {
+                                msg = i + data.msg[i]
+                                break
+                            }
+                        }
+                        $.gritter.add({
+                            title: '提交结果',
+                            text: msg
+                        });
+                    }
+                },
+                // 解决csrftoken
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                }
+            });
+        });
+    </script>
+
+    {# 新加的登录按钮的js #}
+    <script>
+        $("#submit").click(function () {
+            // some_check
+            console.log($("#login_form").serialize());
+            $.ajax({
+                url: "{% url 'accounts:login' %}",
+                type: "POST",
+                dataType: "json",
+                data: $("#login_form").serialize(),
+                success: function (data) {
+                    console.log(data);
+                if(data.status == 200)
+            {
+                {#刷新页面#}
+                window.location.href = "{% url 'exercise:index' %}";
+            }
+        else
+            {
+                msg = "新错误类型"
+                if (data.status == 400 || data.status == 401) {
+                    msg = data.msg
+                } else {
+                    for (var i in data.msg) {
+                        msg = i + data.msg[i]
+                        break
+                    }
+                }
+                $.gritter.add({
+                    title: '提交结果',
+                    text: msg
+                });
+            }
+        },
+            // 解决csrftoken
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            }
+        });
+        });
+    </script>
+
+    {# 点击验证码图片后，Ajax动态验证码 #}
+    <script>
+        get_captcha_img();
+        $("#captcha_img").click(get_captcha_img);
+
+        function get_captcha_img() {
+            $.ajax({
+                url: '{% url 'apis:get_captcha' %}',
+                type: 'GET',
+                dataType: 'text',
+                success: function (data) {
+                    $('#captcha_img').attr('src', data);
+                }
+            });
+        }
+         {# ajax动态检查验证码 #}
+        // 这里在form中定义了，如果没定义可以用jquery添加事件
+        // $("#id_captcha").blur(check_captcha);
+
+        // 当失去焦点时检查验证码
+        function check_captcha() {
+            var captcha_code = $('#captcha').val();
+            if (captcha_code.length == 0) {
+                return false
+            }
+            $.ajax({
+                url: '{% url 'apis:check_captcha' %}',
+                type: 'GET',
+                dataType: 'json',
+                data: {"captcha_code": captcha_code},
+                success: function (data) {
+                    if (data.code == 400) {
+                        $('.msg').html("验证码错误");
+                    } else {
+                        $('.msg').html("");
+                    }
+                }
+            });
+        };
+    </script>
+</div>
+</body>
+</html>
