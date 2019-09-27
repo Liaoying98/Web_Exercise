@@ -55,226 +55,27 @@
 	<div class="bride-grids">
 		<div class="container">
 
+            {% for i in contacts %}
 			 <div class="col-md-4 bride-grid">
 				 <div class="content-grid l-grids">
 					 <figure class="effect-bubba">
-						 <img src="{% static 'images/b1.jpg' %}" alt=""/>
+						 <img src="/media/{{  i.pic }}" alt="" style="height: 400px;width: 400px"/>
 						 <figcaption>
-                             <h4>Cardio </h4>
-                             <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
+                             <h4>{{ i.title}}</h4>
+                             <p>练习{{ i.title}}</p>
                          </figcaption>
 					 </figure>
 					 <div class="clearfix"></div>
-					 <h3>Cardio</h3>
-				 </div>
-				 <div class="content-grid l-grids">
-					 <figure class="effect-bubba">
-						 <img src="{% static 'images/b2.jpg' %}" alt=""/>
-						 <figcaption>
-								<h4>Aerobics</h4>
-								<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
-							</figcaption>
-					 </figure>
-					 <div class="clearfix"></div>
-					 <h3>Aerobics</h3>
+					 <h3><a href="{{ i.id }}">{{ i.title}}</a></h3>
 				 </div>
 			 </div>
-{#			 <div class="col-md-4 bride-grid">#}
-{#				 <div class="content-grid l-grids">#}
-{#					 <img src="{% static 'images/brid.jpg' %}" alt=""/>#}
-{#					 <h3>Morning Walk</h3>#}
-{#				 </div>#}
-{#			 </div>#}
-            <div class="col-md-4 bride-grid">
-				 <div class="content-grid l-grids spanl-grid1">
-					 <figure class="effect-bubba">
-						 <img src="{% static 'images/b3.jpg' %}" alt=""/>
-						 <figcaption>
-							 <h4>Weights Lifting </h4>
-							 <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
-						 </figcaption>
-					 </figure>
-					 <div class="clearfix"></div>
-					 <h3>Weights Lifting</h3>
-				 </div>
-				 <div class="content-grid l-grids spanl-grid2">
-					 <figure class="effect-bubba">
-						 <img src="{% static 'images/b4.jpg' %}" alt=""/>
-						 <figcaption>
-							 <h4>Mobility Exercises </h4>
-							 <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
-						 </figcaption>
-					 </figure>
-					 <div class="clearfix"></div>
-					 <h3>Mobility Exercises</h3>
-				 </div>
-
-				 <div class="clearfix"></div>
-			 </div>
-
-            <div class="col-md-4 bride-grid">
-				 <div class="content-grid l-grids spanl-grid1">
-					 <figure class="effect-bubba">
-						 <img src="{% static 'images/b3.jpg' %}" alt=""/>
-						 <figcaption>
-							 <h4>Weights Lifting </h4>
-							 <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
-						 </figcaption>
-					 </figure>
-					 <div class="clearfix"></div>
-					 <h3>Weights Lifting</h3>
-				 </div>
-				 <div class="content-grid l-grids spanl-grid2">
-					 <figure class="effect-bubba">
-						 <img src="{% static 'images/b4.jpg' %}" alt=""/>
-						 <figcaption>
-							 <h4>Mobility Exercises </h4>
-							 <p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>
-						 </figcaption>
-					 </figure>
-					 <div class="clearfix"></div>
-					 <h3>Mobility Exercises</h3>
-				 </div>
-
-				 <div class="clearfix"></div>
-			 </div>
+            {% endfor %}
 
             <div class="clearfix"></div>
 	 	</div>
 	</div>
 	<!---->
-	<div class="copyrights">Collect from <a href="http://www.17sucai.com/" >手机网站模板</a></div>
-	<!---->
-    {# 售价计划部分 #}
-	<div id="pricing" class="pricing">
-		<div class="container">
-			<div class="pricing-text text-center">
-				<h3>Our Pricing & Plans</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			</div>
-			<div class="pricing-section">
-				<div class="col-md-4 pricing-grid">
-					<div class="pricing-top text-center">
-						<h3>Basic</h3>
-						<p>From <span>$10</span> per month</p>
-					</div>
-					<div class="pricing-offer">
-						<ul>
-							<li class="whyt"><a href="#">Unlimited Monthly Sessions </a></li>
-							<li><a href="#">8 Class Package</a></li>
-							<li class="whyt"><a href="#">10 Class Package</a></li>
-							<li><a href="#">4 Class Package </a></li>
-							<li class="whyt"><a href="#">One Class Walk In</a></li>
-						</ul>
-						<div class="sign text-center">
-							<a class="popup-with-zoom-anim" href="#small-dialog">BUY</a>
-						</div>
-					 </div>
-				 </div>
-				<div class="col-md-4 pricing-grid">
-					<div class="pricing-top text-center">
-						<h3>Standard</h3>
-						<p>From <span>$99</span> per month</p>
-					</div>
-					<div class="pricing-offer">
-						<ul>
-							<li class="whyt"><a href="#">Unlimited Monthly Sessions </a></li>
-							<li><a href="#">8 Class Package</a></li>
-							<li class="whyt"><a href="#">10 Class Package </a></li>
-							<li><a href="#">4 Class Package </a></li>
-							<li class="whyt"><a href="#">One Class Walk In</a></li>
-						</ul>
-						<div class="sign text-center">
-							<a class="popup-with-zoom-anim" href="#small-dialog">BUY</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 pricing-grid">
-					<div class="pricing-top text-center">
-						<h3>Golden</h3>
-						<p>From <span>$150</span> per month</p>
-					</div>
-					<div class="pricing-offer">
-						 <ul>
-							<li class="whyt"><a href="#">Unlimited Monthly Sessions</a></li>
-							<li><a href="#">8 Class Package</a></li>
-							<li class="whyt"><a href="#">10 Class Package </a></li>
-							<li><a href="#">4 Class Package </a></li>
-							<li class="whyt"><a href="#">One Class Walk In</a></li>
-						 </ul>
-						 <div class="sign text-center">
-							 <a class="popup-with-zoom-anim" href="#small-dialog">BUY</a>
-						 </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			 </div>
-			<!--pop-up-grid-->
-			<div id="small-dialog" class="mfp-hide">
-				<div class="pop_up">
-					<div class="payment-online-form-left">
-						<form>
-							<h4><span class="shipping"> </span>Shipping</h4>
-							<ul>
-								<li><input class="text-box-dark" type="text" value="Frist Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Frist Name';}"></li>
-								<li><input class="text-box-dark" type="text" value="Last Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Last Name';}"></li>
-							</ul>
-							<ul>
-								<li><input class="text-box-dark" type="text" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}"></li>
-								<li><input class="text-box-dark" type="text" value="Company Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Company Name';}"></li>
-							</ul>
-							<ul>
-								<li><input class="text-box-dark" type="text" value="Phone" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Phone';}"></li>
-								<li><input class="text-box-dark" type="text" value="Address" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Address';}"></li>
-							</ul>
-							<div class="clearfix"></div>
-							<h4 class="paymenthead"><span class="payment"></span> Payments</h4>
-							<div class="clearfix"></div>
-							<ul class="payment-type">
-								<li><span class="col_checkbox">
-									<input id="3" class="css-checkbox1" type="checkbox">
-									<label for="3" class="css-label1"></label>
-									<a class="visa" href="#"></a>
-								</span>
-								</li>
-								<li>
-									<span class="col_checkbox">
-										<input id="4" class="css-checkbox2" type="checkbox">
-										<label for="4" class="css-label2"></label>
-										<a class="paypal" href="#"></a>
-									</span>
-								</li>
-							</ul>
-							<ul>
-								<li><input class="text-box-dark" type="text" value="Card Number" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Card Number';}"></li>
-								<li><input class="text-box-dark" type="text" value="Name on card" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name on card';}"></li>
-							</ul>
-							<ul>
-								<li><input class="text-box-light hasDatepicker" type="text" id="datepicker" value="Expiration Date" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>
-								<li><input class="text-box-dark" type="text" value="Security Code" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Security Code';}"></li>
-							</ul>
-							<ul class="payment-sendbtns">
-								<li><input type="reset" value="Reset"></li>
-								<li><a href="#" class="order">Process order</a></li>
-							</ul>
-							<div class="clearfix"></div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<!--pop-up-grid-->
-		 </div>
-	</div>
-	<!---->
-	<div class="get-started">
-		<div class="container">
-			<h4>We Ready  to Help You</h4>
-			<h3>Get the Best Solution for Your Fitness</h3>
-			<a href="#">GET STARTED</a>
-	 </div>
-	</div>
-	<!---->
-	<div class="content-team">
+    <div class="content-team">
 		<div class="container">
 			<h3>Our team</h3>
 			<p>Dolor nunc estibulum vel libero ipsum sit.</p>
@@ -284,11 +85,10 @@
 						<a href="#"><img class="img-responsive" src="{% static 'images/t1.jpg' %}" alt=""></a>
 						<div class="mask">
 							<ul class="social-icons">
-								<li><a href="#"><span class="facebook"> </span></a></li>
-								<li><a href="#"><span class="twitter"> </span></a></li>
+
 							</ul>
 						</div>
-						<h6>Contrary to popular</h6>
+						<h6>减肥瘦身</h6>
 						<p>But I must explain to you how all this mistaken idea of denouncing</p>
 					</div>
 				</div>
@@ -297,11 +97,9 @@
 						<a href="#"><img class="img-responsive" src="{% static 'images/t2.jpg' %}" alt=""></a>
 						<div class="mask">
 							<ul class="social-icons">
-								<li><a href="#"><span class="facebook"> </span></a></li>
-								<li><a href="#"><span class="twitter"> </span></a></li>
 							</ul>
 						</div>
-						<h6>Contrary to popular</h6>
+						<h6>健身计划</h6>
 						<p>But I must explain to you how all this mistaken idea of denouncing</p>
 					</div>
 				</div>
@@ -310,11 +108,9 @@
 						<a href="#"><img class="img-responsive" src="{% static 'images/t3.jpg' %}" alt=""></a>
 						<div class="mask">
 							<ul class="social-icons">
-								<li><a href="#"><span class="facebook"> </span></a></li>
-								<li><a href="#"><span class="twitter"> </span></a></li>
 							</ul>
 						</div>
-						<h6>Contrary to popular</h6>
+						<h6>锻炼器材</h6>
 						<p>But I must explain to you how all this mistaken idea of denouncing</p>
 					</div>
 				</div>
@@ -323,11 +119,9 @@
 						<a href="#"><img class="img-responsive" src="{% static 'images/t4.jpg' %}" alt=""></a>
 						<div class="mask">
 							<ul class="social-icons">
-								<li><a href="#"><span class="facebook"> </span></a></li>
-								<li><a href="#"><span class="twitter"> </span></a></li>
 							</ul>
 						</div>
-						<h6>Contrary to popular</h6>
+						<h6>健身饮食</h6>
 						<p>But I must explain to you how all this mistaken idea of denouncing</p>
 					</div>
 				</div>
@@ -335,6 +129,15 @@
 			</div>
 		</div>
 	</div>
+	<!---->
+	<div class="get-started">
+		<div class="container">
+			<h4>We Ready  to Help You</h4>
+			<h3>Get the Best Solution for Your Fitness</h3>
+			<a href="{% url 'accounts:login' %}">加入我们</a>
+	 </div>
+	</div>
+
 
 {% endblock %}
 
@@ -360,21 +163,6 @@
             }
           });
 
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.popup-with-zoom-anim').magnificPopup({
-                type: 'inline',
-                fixedContentPos: false,
-                fixedBgPos: true,
-                overflowY: 'auto',
-                closeBtnInside: true,
-                preloader: false,
-                midClick: true,
-                removalDelay: 300,
-                mainClass: 'my-mfp-zoom-in'
-            });
         });
     </script>
 {% endblock %}

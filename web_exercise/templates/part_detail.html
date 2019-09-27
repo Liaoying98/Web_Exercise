@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block load_css %}
+{% endblock %}
+
+<title>{% block title %}Shoulder{% endblock %}</title>
+
+{% block content %}
+    <div class="inner-banner"></div>
+    <div class="blog-section">
+        <div class="container">
+{#            <h2 class="heading text-center">肩膀</h2>#}
+            <div class="banner-bdy sig">
+                <div class="single">
+                    {#左边框#}
+                    <div class="sing-img-text" >
+                        <div style="overflow: hidden">
+                            <hr style="height:3px;border:none;border-top:3px double #f94877;" />
+                            <div style="float: left">
+                                <img src="//www.jirou.com/uploads/allimg/190807/153-1ZPGJZVU-lp.jpg">
+                            </div>
+                            <div style="float: right; width: 480px; height: 160px">
+                                <h3><a target="_blank" href="//www.jirou.com/lian/jb/13837.html">肩部肌肉训练动作 原来是这几个动作</a></h3>
+                                <p style="height: 80px">
+                                    肩部肌肉怎么训练，是有许多训练动作，同时这些训练动作的训练效果是很好的，不过很多人都不知道肩部肌肉有什么训练动作，当然有些人还是知道有什么训练动作的...
+                                </p>
+                                <div><span>2019-08-07</span></div>
+                            </div>
+                            {#<hr style="height:3px;border:none;border-top:3px double #f94877;" />#}
+                        </div>
+                    </div>
+                    {#右边框#}
+                    <div class="sing-img-text-left">
+                        <div class="blog-right1">
+                            <div class="search11">
+                                <h3>Newsletter</h3>
+                                <form>
+                                    <input type="text" value="Email..." onFocus="this.value = '';"
+                                           onBlur="if (this.value == '') {this.value = 'Email...';}" required="">
+                                    <input type="submit" value="Subscribe">
+                                </form>
+                            </div>
+                            <div class="categories">
+                                <h3>Categories</h3>
+                                <ul>
+                                    <li><a href="#">Aliquam dapibus tincidunt</a></li>
+                                    <li><a href="#">Donec sollicitudin molestie</a></li>
+                                    <li><a href="#">Fusce feugiat malesuada odio</a></li>
+                                    <li><a href="#">Cum sociis natoque penatibus</a></li>
+                                    <li><a href="#">Magnis dis parturient montes</a></li>
+                                    <li><a href="#">Donec sollicitudin molestie</a></li>
+                                </ul>
+                            </div>
+                            <div class="categories categories-mid">
+                                <h3>Archieves</h3>
+                                <ul>
+                                    <li><a href="#">May 20,2009</a></li>
+                                    <li><a href="#">July 31,2010</a></li>
+                                    <li><a href="#">January 20,2012</a></li>
+                                    <li><a href="#">November 2,2012</a></li>
+                                    <li><a href="#">December 25,2014</a></li>
+                                    <li><a href="#">January 14,2015</a></li>
+                                </ul>
+                            </div>
+                            <div class="related-posts">
+                                <h3>Related Posts</h3>
+                                <div class="related-post">
+                                    <div class="related-post-left">
+                                        <a href="{% url 'diet:single' %}"><img src="{% static 'images/b4.jpg' %}"
+                                                                               class="img-responsive" alt=" "/></a>
+                                    </div>
+                                    <div class="related-post-right">
+                                        <h4><a href="{% url 'diet:single' %}">Donec sollicitudin</a></h4>
+                                        <p>Aliquam dapibus tincidunt metus.
+                                            <span>Praesent justo dolor, lobortis.</span>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="related-post">
+                                    <div class="related-post-left">
+                                        <a href="{% url 'diet:single' %}"><img src="{% static 'images/b1.jpg' %}"
+                                                                               class="img-responsive" alt=" "/></a>
+                                    </div>
+                                    <div class="related-post-right">
+                                        <h4><a href="{% url 'diet:single' %}">Donec sollicitudin</a></h4>
+                                        <p>Aliquam dapibus tincidunt metus.
+                                            <span>Praesent justo dolor, lobortis.</span>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="related-post">
+                                    <div class="related-post-left">
+                                        <a href="{% url 'diet:single' %}"><img src="{% static 'images/b2.jpg' %}"
+                                                                               class="img-responsive" alt=" "/></a>
+                                    </div>
+                                    <div class="related-post-right">
+                                        <h4><a href="{% url 'diet:single' %}">Donec sollicitudin</a></h4>
+                                        <p>Aliquam dapibus tincidunt metus.
+                                            <span>Praesent justo dolor, lobortis.</span>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="related-post">
+                                    <div class="related-post-left">
+                                        <a href="{% url 'diet:single' %}"><img src="{% static 'images/b3.jpg' %}"
+                                                                               class="img-responsive" alt=" "/></a>
+                                    </div>
+                                    <div class="related-post-right">
+                                        <h4><a href="{% url 'diet:single' %}">Donec sollicitudin</a></h4>
+                                        <p>Aliquam dapibus tincidunt metus.
+                                            <span>Praesent justo dolor, lobortis.</span>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="leave-a-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block load_js %}
+{% endblock %}

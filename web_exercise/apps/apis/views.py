@@ -13,6 +13,9 @@ import time
 import datetime
 from web_exercise.settings import MEDIA_ROOT, MEDIA_URL
 from django.views.generic import View
+from apps.exercise.models import Actions
+
+
 # logger = logging.getLogger('apis')
 
 

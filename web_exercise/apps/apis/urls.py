@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^check_captcha/$', views.check_captcha, name='check_captcha'),
     # 上传头像
     url(r'^change_avator/$', views.ChangeAvator.as_view(), name='change_avator'),
+
 ]

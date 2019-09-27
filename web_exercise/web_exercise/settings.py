@@ -90,10 +90,20 @@ WSGI_APPLICATION = 'web_exercise.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',   # Mysql引擎
+        'NAME': 'exercise',                 # 数据库名，不需要路径以及后缀的   
+        'USER': 'exercise',                         # 用户
+        'PASSWORD': 'liaoying98',                  # 密码
+        'HOST': '192.168.0.98',                    # 127.0.0.1同理
+        'PORT': '3306',                         # Set to empty string for default.
     }
 }
 
